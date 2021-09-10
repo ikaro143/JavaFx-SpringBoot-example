@@ -157,6 +157,32 @@
                 </plugins>
             </build>
         </profile>
-    </profiles>
 
+        <profile>
+            <id>native-gluonfx</id>
+            <properties>
+                <repackage.classifier>exec</repackage.classifier>
+                <gluonfx.version>1.0.4</gluonfx.version>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.gluonhq</groupId>
+                        <artifactId>gluonfx-maven-plugin</artifactId>
+                        <version>${gluonfx.version}</version>
+                        <configuration>
+                            <target>host</target>
+                            <attachList>
+                                <list>display</list>
+                                <list>lifecycle</list>
+                                <list>statusbar</list>
+                                <list>storage</list>
+                            </attachList>
+                            <mainClass>${main.class}</mainClass>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
